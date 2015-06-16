@@ -1,0 +1,19 @@
+<div class="modal-content">
+<div class="modal-header">
+  <h3 class="modal-title">Coupon Print Result</h3>
+</div>
+<div class="modal-body">
+  <br />  
+  <div data-ng-show="printer.printed == 13">Invalid printer settings.</div>
+  <div data-ng-show="printer.printed == -50">One or more coupon(s) has expired.</div>
+  <div data-ng-show="printer.printed == -51">Your plugin require update.</div>
+  <div data-ng-show="printer.printed == -52">Print limit reached for your selected coupon(s).</div>
+  <div data-ng-show="printer.printed > 99">One or more coupon(s) has reached print limit.</div>
+  <div data-ng-show="printer.printed == 0">Printed {{printer.count}} coupon(s).</div>
+  <br />
+  <div>Having trouble with coupon printing? <a href="https://gsn.github.io/gcprinter/example/help.html" target="_blank">https://gsn.github.io/gcprinter/example/help.html</a></div>  
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" ng-click="closeModal()">Close</button>  
+</div>
+</div>

@@ -1,0 +1,326 @@
+* {
+  -webkit-overflow-scrolling: touch;
+  -webkit-user-select: html;
+  -khtml-user-select: html;
+  -moz-user-select: html;
+  -ms-user-select: html;
+  user-select: html;
+}
+
+p
+{
+  margin: 0;
+}
+
+a:hover
+{
+  text-decoration: none;
+}
+
+a:focus
+{
+  outline: none;
+}
+
+ul
+{
+  list-style-type: none;
+}
+
+legend
+{
+  border: none;
+  font-size: 1px;
+  margin: 0;
+  text-indent: -9999px;
+}
+
+.noPad
+{
+  padding: 0;
+}
+
+.noPadWidth
+{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.noPadLeft
+{
+  padding-left: 0;
+}
+
+.noPadRight
+{
+  padding-right: 0;
+}
+
+#recaptcha_switch_audio 
+{
+ display: none;
+}
+
+.hidden-meta, .hidden {
+  position: absolute;
+  z-index: 999;
+  left: -9999em;
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.ng-cloak {
+  display: none;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2em;
+  right: 0px;
+  text-decoration: none;
+  color: #000000;
+  background-color: rgba(235, 235, 235, 0.80);
+  font-size: 12px;
+  padding: 1em;
+  display: none;
+  z-index: 10;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.back-to-top:hover {
+  background-color: rgba(135, 135, 135, 0.50);
+}
+
+.stuck {
+  position: fixed;
+  z-index: 10;
+}
+
+.app-loading-container {
+  width: 100%; 
+  height: 100%; 
+  top: 0px; 
+  left: 0px; 
+  position: fixed; 
+  display: block; 
+  opacity: 0.7; 
+  background-color: #fff; 
+  z-index: 999999; 
+  text-align: center;
+}
+
+.app-loading-image {
+  position: absolute; 
+  top: 100px; 
+  left: 50%; 
+  z-index: 100; 
+  margin-left: -64px
+}
+
+.modal-content {
+  color: #000;
+}
+
+.body-gmodal { 
+  overflow: hidden !important; 
+}
+
+.gmodal {
+  background: url("data:image/gif;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNg2AQAALUAs0e+XlcAAAAASUVORK5CYII=");
+}
+
+/* always show photoswipe toolbar */
+.ps-caption {
+  opacity:0.8 !important;
+  display:block !important;
+}
+
+.ps-toolbar {
+  opacity:0.8 !important;
+  display:table !important;
+}   
+
+.logo {
+  max-width: 100%;
+}
+
+/* logo responsive */
+@media(max-width: 767px){
+  .logo {
+    height: 50px;
+  }
+}
+
+@media(min-width:768px) and (max-width:991px) {
+  .logo {
+    height: 100px;
+  }
+}
+
+/* make dropdown menu better touch target */
+.dropdown-menu-touch li a {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.dcircular-popup
+{
+  position: fixed; 
+  z-index: 10; 
+  width: 300px;
+  padding: 5px; 
+  background: #fff
+}
+
+/* logo responsive */
+@media(max-width: 767px){
+  .dcircular-popup {
+    width: 200px;
+  }
+}
+
+@media(min-width:768px) and (max-width:991px) {
+  .dcircular-popup {
+    width: 250px;
+  }
+}
+
+/* hover menu on big screen only */
+@media (min-width: 979px) {
+  ul.nav-hover li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
+
+.stuck.stuck-collapsed {
+  margin-bottom: -80px;
+}
+
+.stuck-collapser {
+  display: none;
+}
+
+.stuck .stuck-collapser {
+  right: -20px; 
+  top: -20px; 
+  cursor: pointer; 
+  background-color: #ccc; 
+  width: 30px; 
+  border-radius: 30px; 
+  position: absolute; 
+  text-align: center; 
+  line-height: 30px;
+  display: block;
+}
+
+.dcircular-popup {
+  display: none;
+}
+
+.gsn-popover 
+{
+  position: fixed; 
+  z-index: 100; 
+  padding: 5px; 
+  background: #fff;
+  display: none;
+}
+
+.gsn-popover img {
+  width: 200px;
+}
+
+.my-navbar {
+  margin-bottom: 0;
+}
+
+.slide-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.slide-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide.ng-enter, .slide.ng-leave {
+  -webkit-transition: left 0.6s ease-in-out 0s;
+  -moz-transition: left 0.6s ease-in-out 0s;
+  -o-transition: left 0.6s ease-in-out 0s;
+  transition: left 0.6s ease-in-out 0s;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+.slide.ng-enter {
+  left: 100%;
+}
+
+.slide.ng-enter.ng-enter-active {   
+  left: 0;
+}
+
+.slide.ng-leave {
+  position: absolute;
+  left: 0;
+}
+
+.slide.ng-leave.ng-leave-active {
+  left: -100%;
+}
+
+.featuredhome-default img {
+  width: 150px;
+  padding-right: 10px;
+}
+
+.featuredhome a.featuredhome-default {
+  height: 120px;
+  width: 100%;
+  border: 1px solid #ccc;
+  display: block;
+  padding: 5px;
+  overflow: hidden;
+  color: #000;
+}
+
+.featuredhome a.featuredhome-default:hover {
+  background-color: #f8f8f8;
+}
+
+@media(min-width:768px) and (max-width:991px) {
+  .featuredhome-default img {
+    width: 80px;
+  }
+}
+
+.layout-container {
+  overflow-x: hidden;
+  background-color: #fff;
+  color: #000;
+}
+
+.mainContent {
+  background: #fff;
+  color: #000;
+}
+
+footer {
+  margin-top: 15px;
+  display: block;
+  overflow: auto;
+  border-top: solid 1px #ccc;
+  padding-top: 5px;
+}
+
+.login-menu, .login-menu a, .login-menu a:hover, .login-menu a:focus, 
+.mylist-menu, .mylist-menu a, .mylist-menu a:hover, .mylist-menu a:focus {
+  color: #000 !important;
+}
+
+#loading-bar,#loading-bar-spinner{pointer-events:none;-webkit-pointer-events:none;-webkit-transition:350ms linear all;-moz-transition:350ms linear all;-o-transition:350ms linear all;transition:350ms linear all}#loading-bar-spinner.ng-enter,#loading-bar-spinner.ng-leave.ng-leave-active,#loading-bar.ng-enter,#loading-bar.ng-leave.ng-leave-active{opacity:0}#loading-bar-spinner.ng-enter.ng-enter-active,#loading-bar-spinner.ng-leave,#loading-bar.ng-enter.ng-enter-active,#loading-bar.ng-leave{opacity:1}#loading-bar .bar{-webkit-transition:width 350ms;-moz-transition:width 350ms;-o-transition:width 350ms;transition:width 350ms;background:#ccc;position:fixed;z-index:2000;top:0;left:0;width:100%;height:2px}#loading-bar .peg{display:block;position:absolute;right:0;width:100px;height:100%;box-shadow:0 0 10px #ccc,0 0 5px #ccc;opacity:1;-webkit-transform:rotate(3deg) translate(0px,-4px);-moz-transform:rotate(3deg) translate(0px,-4px);-ms-transform:rotate(3deg) translate(0px,-4px);-o-transform:rotate(3deg) translate(0px,-4px);transform:rotate(3deg) translate(0px,-4px)}#loading-bar-spinner{display:block;position:fixed;z-index:100;top:10px;left:10px}#loading-bar-spinner .spinner-icon{width:40px;height:40px}

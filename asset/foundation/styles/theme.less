@@ -1,0 +1,145 @@
+/*
+@bgDefault      : #9b59b6;
+@colDefault     : #ecf0f1;
+@bgHighlight    : #8e44ad;
+@colHighlight   : #ecdbff;
+@bgBody         : #ccc;
+@colBody        : #000;
+@bgHeader       : @bgDefault;
+@colHeader      : @colDefault;
+@bgFooter       : @bgDefault;
+@colFooter      : @colDefault;
+@dropDown       : false;
+*/
+
+.ddm() when (@dropDown) {
+  > .dropdown-menu {
+    background: @bgDefault;
+    > li > a {
+      color: @colDefault;
+      &:hover,  &:focus {
+        color: @colHighlight;
+        background: @bgHighlight; }}
+    .divider {
+      background: @bgHighlight;}}}
+
+.limDefault {
+  body {
+    background: @bgBody;
+    color: @colBody;
+  }
+
+  .btn-default, .default-color {
+    background: @bgDefault;
+    color: @colDefault;
+    a {
+      color: @colDefault;
+      &:hover, &:focus {
+        color: @colHighlight; }}
+  }
+
+  header {
+    background: @bgHeader;
+    color: @colHeader;
+    a {
+      color: @colHeader;
+      &:hover, &:focus {
+        color: @colHeader; }}
+  }
+
+  footer {
+    background: @bgFooter;
+    color: @colFooter;
+    a {
+      color: @colFooter;
+      &:hover, &:focus {
+        color: @colFooter; }}
+  }
+
+  .pagination {
+    background: @bgDefault;
+    color: @colDefault;
+    > li {
+      > a {
+        background: @bgDefault;
+        color: @colDefault;
+        &:hover,  &:focus {
+          color: @colHighlight; 
+          background: @bgHighlight;
+        }}}
+    > .active {
+      background: @bgHighlight;
+      color: @colHighlight;
+      > a, > a:hover, > a:focus {
+        background: @bgHighlight;
+        color: @colHighlight;
+      }}
+  }
+}
+
+/* default styling override */
+.limDefault();
+
+/* duplicate style in media query to support older browser */
+@media (min-width: 1) {
+  .limDefault();
+}
+
+/* navigation */
+.navbar-default {
+  background: @bgDefault;
+  border-color: @bgHighlight;
+  .navbar-brand {
+    color: @colDefault;
+    &:hover, &:focus { 
+      color: @colHighlight; }}
+  .navbar-text {
+    color: @colDefault; }
+  a {
+    color: @colDefault;
+    &:hover, &:focus {
+      color: @colHighlight; }}
+  .navbar-nav {
+    > li {
+      > a {
+        color: @colDefault;
+        &:hover,  &:focus {
+          color: @colHighlight; }}
+        .ddm }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background: @bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background: @bgHighlight; }}}
+  .navbar-toggle {
+    border-color: @bgHighlight;
+    &:hover, &:focus {
+      background: @bgHighlight; }
+    .icon-bar {
+      background: @colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: @colDefault; }
+  .navbar-link {
+    color: @colDefault;
+    &:hover {
+      color: @colHighlight; }}}
+
+@media (max-width: 767px) {
+  a {
+    color: @colDefault;
+    &:hover, &:focus {
+      color: @colHighlight; }}
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: @colDefault;
+      &:hover, &:focus {
+        color: @colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background: @bgHighlight; }}}
+}

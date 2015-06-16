@@ -1,0 +1,11 @@
+<div class="hidden-meta" data-gsn-title="{{ChainName}} | my recipe box"></div>
+<div data-ctrl-my-recipes="" class="col-md-12">
+  <h3>My Recipe Box</h3>
+  <div class="myRecipeInfo" data-ng-show="vm.recipes.length <= 0"><h5>You do not have any saved recipes.</h5></div>
+  <ul>
+      <li data-ng-repeat="item in vm.recipes">
+          <a href="javascript:void(0)" data-ng-click="goUrl('/recipe/' + item.RecipeId)">{{item.RecipeInfo.RecipeTitle}}</a>
+          <div data-ng-if="item.Comment">Comment: {{item.Comment}}</div>
+      </li>
+  </ul>
+</div>

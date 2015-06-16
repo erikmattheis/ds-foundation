@@ -1,0 +1,31 @@
+<div data-gsn-shopping-list="">
+  <div class="text-center">
+    <h4>My Shopping List</h4>
+    <div class="input-group input-group-sm" style="width: 100%;">
+      <input type="text" class="form-control" data-ng-model="addString" placeholder="add your own item" ui-keypress="{13:'doAddOwnItem()'}" />
+      <span class="input-group-addon glyphicon glyphicon-plus" style="cursor: pointer" data-ng-click="doAddOwnItem()"></span>
+    </div>
+  </div>
+  <div class="btn-group" data-ng-show="mylist.hasLoaded()">
+    <button type="button" class="btn btn-default" data-ng-click="goUrl('/mylist/print', '_blank')"><i title="print" class="fa fa-print fa-2x"></i><span><br />print</span></button>
+    <button type="button" class="btn btn-default" data-ng-click="goUrl('/mylist/email')"><i title="email" class="fa fa-envelope fa-2x"></i><span><br />email</span></button>
+    <button type="button" class="btn btn-default" class="previous" data-ng-click="goUrl('/savedlists')"><i title="previous lists" class="fa fa-folder-open fa-2x"></i><span><br />prev</span></button>
+    <button type="button" class="btn btn-default" data-gsn-modal="getThemeUrl('/views/engine/modal-shopping-list-title.html')" data-ng-click="doIfLoggedIn(showModal)"><i title="save list" class="fa fa-file fa-2x"></i><span><br />save</span></button>
+    <button type="button" class="btn btn-default" data-ng-click="goUrl('/mylist')"><i title="manage list" class="fa fa-list fa-2x"></i><span><br />manage</span></button>
+  </div>
+  <div data-gsn-spinner="{radius:20, width:4, length: 8}" data-show-if="!mylist.hasLoaded()"></div>
+  <div class="text-center">
+    <p>You have {{totalQuantity}} items on your list</p>
+    <br />
+  </div>
+  <div class="row" data-ng-repeat="item in topitems | pagingFilter:5:0" style="border-top: 1px solid #ccc; margin: 0; padding-top: 5px">
+    <div class="col-xs-3">
+      <img data-ng-src="{{item.SmallImageUrl || getThemeUrl('/images/no_image.jpg')}}" style="width: 100%" />
+      <span class="price">{{item.PriceString}}</span>
+    </div>
+    <div class="col-xs-9">
+      <a class="pull-right" href="javascript:void(0)" data-ng-click="doItemRemove(item)"><i class="pull-right glyphicon glyphicon-remove"></i></a>  
+      {{item.Quantity}} x <span data-ng-bind-html="item.Description | trustedHtml"></span>  
+    </div>
+  </div>
+</div>

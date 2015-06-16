@@ -1,0 +1,56 @@
+<div data-ctrl-recipe-video="" class="col-md-12">
+  <div class="hidden-meta" data-gsn-title="{{ChainName}} | {{video ? 'cooking video' : video.Title}}"></div>
+  <div class="hidden-meta" data-gsn-og-title="{{ChainName}} | {{video ? 'cooking video' : video.Title"></div>
+  <div class="hidden-meta" data-gsn-og-type="video"></div>
+  <div class="hidden-meta" data-gsn-og-image="{{video.Thumbnail}}"></div>
+  <h1>Cooking Videos</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Videos</h3>
+      <div style="display: block; height: 300px; width: 100%; overflow-y: scroll;">
+        <div class="list-group list-groupPns">
+          <div data-ng-repeat="video in vm.videos | orderBy : 'Title'" style="cursor: pointer">
+            <a href="javascript:void(0)" class="list-group-item list-group-itemPns" data-ng-class="{ active: vm.video.VideoId == {{video.VideoId}}}" title="{{video.Title}}" data-ng-click="goUrl('/recipevideo/' + video.VideoId)">{{video.Title}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 noPadLeft">
+      <h1>5 Minute Cooking Classes</h1>
+      <div class="videoColumn" id="VideoPlayer">
+        <h3>{{videoTitle}}</h3>
+        <a id="RecipeVideoPlayer" class="RecipeVideoPlayer"></a>
+      </div>
+    </div>        
+  </div>
+</div>
+<script>
+  flowplayer("RecipeVideoPlayer", "http://cdn.gsngrocers.com/script/lib/flowplayer-3.2.18.swf", {
+    clip: {
+      // these two configuration variables does the trick
+      autoPlay: false,
+      autoBuffering: true // <- do not place a comma here
+    }
+  });
+</script>
+<style>
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus
+{
+  background-color: rgba(245,130,32,.9);
+  border: none;
+}
+
+.RecipeVideoPlayer
+{
+  display: block; 
+  width: 100%; 
+  height: 250px;
+}
+
+/*---------- Featured Article/Cooking Tip ----------*/
+.articleImage, .articleContent,
+.recipeCenterFeatures h3
+{
+  padding: 20px;
+}
+</style>

@@ -1,0 +1,16 @@
+<!-- engine layout -->
+<div class="row">
+  <div class="col-md-9" data-ng-view=""></div>
+  <div class="col-md-3 text-center">
+    <div data-gsn-sticky="" data-top="60" style="margin-left: -35px">
+      <div style="padding: 5px" class="circplus"></div>
+      <div style="padding: 5px" data-ng-include="getThemeUrl('/views/engine/available-varieties.html')"></div>
+      <div style="padding: 5px" data-gsn-ad-unit="4" data-ng-if="',visible-lg,visible-md'.indexOf(bsDisplayMode) > 0"></div> 
+      <div style="padding: 5px" data-gsn-ad-unit="5" data-ng-if="',visible-lg,visible-md'.indexOf(bsDisplayMode) > 0"></div>
+    </div>
+  </div>
+</div>
+<div data-gsn-sticky="" data-bottom="0" data-ng-class="{ 'stuck-collapsed': gvm.adsCollapsed }">
+	<div class="stuck-collapser" data-ng-click="gvm.adsCollapsed = !gvm.adsCollapsed"><i class="fa" data-ng-class="{ 'fa-chevron-up': gvm.adsCollapsed, 'fa-chevron-down': !gvm.adsCollapsed }"></i></div>
+  <div style="padding: 5px" class="gsnunit" data-sizes="leaderboard" data-targeting='{"tile": "1"}'></div>
+</div>

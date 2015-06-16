@@ -1,0 +1,38 @@
+<div data-ctrl-store-locator="" class="col-md-12">
+  <h1>{{myMarkers[0].location.StoreName}}</h1>
+  <div class="hidden-meta" data-gsn-title="{{ChainName}} | Store - {{myMarkers[0].location.StoreName}}"></div>
+  <div class="staticContent" data-ng-if="myMarkers[0].location.Misc1" data-ng-bind-html="myMarkers[0].location.Misc1 | removeAspx | trustedHtml"></div>
+  <div class="staticContent" data-ng-if="!myMarkers[0].location.Misc1">
+    <img src="http://placehold.it/1080x300?text=Store+Front+Image+Goes+Here" />
+  </div>
+  <div class="row" style="padding-top: 10px">
+    <div class="col-md-6 col-sm-6 staticBlock">
+      <!-- the map -->
+      <div id="map_canvas" data-ui-map="myMap" class="map-container gMap" data-ui-options="mapOptions" style="height: 280px;"></div>
+      <!-- the map popup view definition -->
+      <div class="infoMarker" data-ui-map-info-window="myInfoWindow">
+        <div data-ng-show="currentMarker.location">
+          <strong>{{myMarkers[0].location.StoreName}}</strong><br />
+          <address>
+            {{currentMarker.location.PrimaryAddress}}<br />
+            {{currentMarker.location.City}}, {{currentMarker.location.StateName}} {{currentMarker.location.PostalCode}}  
+          </address>
+          <div>
+            <a href="javascript:void(0)" class="btn btn-default btn-xs" data-ng-click="selectStore(currentMarker)">Select Store</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-ng-repeat="marker in myMarkers" class="col-md-6 col-sm-6 staticBlock" data-ng-include="getThemeUrl('/views/engine/store-locator-item.html')" itemscope itemtype="http://schema.org/Store">
+    </div>                       
+  </div> 
+  </div>
+</div>
+<style>
+  .staticContent img {
+    width: 100%;
+  }
+  .staticBock img {
+    width: 100%;
+  }
+</style>
