@@ -19,7 +19,7 @@
   <meta name="description" content="Shop for groceries with our meal planning solutions, save hundreds of dollars with printable coupons and find all recipes and meal ideas.">
   <meta name="keywords" content="Weekly Specials, Recipes, Coupons, Meal Planning, Cooking Videos, Low Prices, Shop Online">     
 
-  <title>[chainname]</title>
+  <title>debug [chainname]</title>
   <!--<link href="http://cdn-staging.gsngrocers.com/script/lib/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
   <link href="http://cdn.foundation5.zurb.com/foundation.css" rel="stylesheet" type="text/css">
   <link href="http://cdn-staging.gsngrocers.com/asset/common/styles/global.css" rel="stylesheet" type="text/css">    
@@ -68,9 +68,12 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script> 
   <script>
     $(document).ready(function() {
-      $(document).foundation();
+      setTimeout(function() {
+        $(document).foundation('reflow');
+      }, 1000);
     });
   </script>
+
 
   <script src="https://clientapix.gsn2.com/api/v1/store/sitecontentscript/[chainid]?nocache=1"></script>
   <script data-gsnid="[chainid]" src="http://cdn-staging.gsngrocers.com/script/gsndfp/gsndfp.min.js?nocache=1"></script>

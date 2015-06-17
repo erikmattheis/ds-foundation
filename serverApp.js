@@ -27,7 +27,7 @@ function startServer(chainId) {
   app.get('*', function (request, response) {
     var myPath = url.parse(request.url).pathname.toLowerCase();
     if (myPath.length <= 2 || myPath.indexOf('.') < 0)
-      myPath = path.join('asset/foundation/index.html');
+      myPath = path.join('asset/foundation/debug.html');
 
     console.log(myPath);
     if (myPath.indexOf('.') > 0 && myPath.indexOf('.aspx') < 0) {

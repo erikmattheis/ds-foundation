@@ -5,6 +5,10 @@ var storeApp = angular
       gsn.config.SiteTheme = 'bootstrap';
       gsn.config.defaultMobileListView = true;
 
+      gsn.getThemeUrl = function(partialView) {
+        return '/asset/foundation' + partialView;
+      }
+      
       var le = [gsn.getThemeUrl('/views/layout.html')];
       for(var i = 1; i < 5; i++){
         le.push(gsn.getThemeUrl('/views/layout-gsn' + i + '.html'));

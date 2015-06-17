@@ -1,9 +1,0 @@
-<div class="hidden-meta" data-gsn-title="{{ChainName}} | recipe search"></div>
-<div data-ctrl-recipe-search="" class="col-md-12"> 
-  <h1>Recipe Search Result</h1>
-  <button class="btn btn-default btn-xs" data-ng-click="goBack()">Back</button><br />
-  <div data-pagination="" data-max-size="12" data-total-items="totalItems" data-page="currentPage" data-items-per-page="itemsPerPage"></div>
-  <div class="recipeSearchResults" data-ng-repeat="item in vm.searchResult | orderBy:'Relevance':true | pagingFilter:itemsPerPage:(currentPage-1)">
-      <a href="javascript:void(0)" data-ng-click="goUrl('/recipe/' + item.RecipeId)">{{item.RecipeTitle}}</a>
-  </div>
-</div>
