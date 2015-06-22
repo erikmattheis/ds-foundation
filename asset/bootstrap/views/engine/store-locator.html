@@ -1,8 +1,8 @@
 <div class="hidden-meta" data-gsn-title="{{ChainName}} | store locator"></div>
 <h1>Locate Your Favorite Store</h1>
-<div data-ctrl-store-locator="" class="col-md-12">
+<div data-ctrl-store-locator="" class="row">
   <!-- search form-->
-  <div class="col-md-3 col-sm-3">
+  <div class="medium-12 columns">
     <form name="myStoreLocatorForm">
       Zip, City or State: <br />
       <input class="search" type="text" name="search" data-ng-model="search.storeLocator"><br />
@@ -21,7 +21,7 @@
       Unable to locate a store within the specified search radius.  Displaying first closest store below.
     </div>
   </div>
-  <div class="col-md-9 col-sm-9">
+  <div class="medium-12 columns">
     <!-- the map -->
     <div id="map_canvas" data-ui-map="myMap" class="map-container gMap" data-ui-options="mapOptions" style="height: 280px;"></div>
     <!-- the map popup view definition -->
