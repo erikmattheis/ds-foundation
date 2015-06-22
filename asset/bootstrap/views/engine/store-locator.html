@@ -45,9 +45,9 @@
   <!-- stores -->
   <div class="allStores row">
     <div data-ng-repeat="group in vmsl.myMarkerGrouping"><br />
-      <div class="col-md-12"><h2>{{group.key}}</h2></div><br />
+      <div><h2>{{group.key}}</h2></div><br />
       <div data-ng-repeat="marker in group.items"
-        class="col-md-3 col-sm-4 col-xs-12 singleStoreInfo" 
+        class="medium-4 small-12 columns" 
         data-ng-include="getThemeUrl('/views/engine/store-locator-item.html')" 
         itemscope itemtype="http://schema.org/Store"></div>
     </div>
@@ -59,7 +59,7 @@
     display: block;
   }
   .singleStoreInfo {
-    height: 300px;
+    /*height: 300px;*/
   }
   .radius {
     width: 50px;
