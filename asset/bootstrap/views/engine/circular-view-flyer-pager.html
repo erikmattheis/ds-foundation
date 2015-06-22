@@ -1,0 +1,13 @@
+<li>
+<a href="javascript:void(0)" aria-label="Previous" data-ng-click="vm.pageIdx = (vm.pageIdx <= 1) ? vm.pageIdx = vm.digitalCirc.Circulars[vm.circIdx - 1].Pages.length : vm.pageIdx - 1">
+  <span aria-hidden="true">&laquo;</span>
+</a>
+</li>
+<li data-ng-repeat="item in [] | range:0:vm.digitalCirc.Circulars[vm.circIdx - 1].Pages.length" data-ng-class="{'active': item == (vm.pageIdx - 1)}">
+<a href="javascript:void(0)" data-ng-click="vm.pageIdx = item + 1">{{$index + 1}}</a>
+</li>
+<li>
+<a href="javascript:void(0)" aria-label="Next" data-ng-click="vm.pageIdx = (vm.pageIdx >= vm.digitalCirc.Circulars[vm.circIdx - 1].Pages.length) ? 1 : vm.pageIdx + 1">
+  <span aria-hidden="true">&raquo;</span>
+</a>
+</li>

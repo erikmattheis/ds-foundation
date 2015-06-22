@@ -1,0 +1,20 @@
+<div class="modal-content">
+  <div class="modal-header">
+
+    <div class="close" data-ng-click="vm['item' + $index] = 0">&times;</div>
+  Item Details
+  </div>
+  <div class="modal-body noPad text-center" itemscope itemtype="http://schema.org/Product" style="position: relative">
+  <button class="button gsn-button-default" data-ng-click="doToggleCircularItem($event, item)" style="position: absolute; top: 10px; right: 10px; z-index: 1">{{ isOnList(item) && "Remove" || "Add"}}</button>
+    <img itemprop="image" data-ng-src="{{item.ImageUrl || getThemeUrl('/images/no_image.jpg')}}" style="max-height: 200px; max-width: 300px"/>
+    <p itemprop="description">
+      <span itemprop="name">{{item.Description}}</span><br />
+      {{item.ItemDescription}}
+    </p>
+
+    <div class="SalePrice" data-ng-show="item.PriceString" itemprop="price" content="{{item.SalePrice}}">{{item.PriceString}}</div>
+    <div class="savings" data-ng-show="item.Savings">SAVINGS - {{item.SavingsString}}</div>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>

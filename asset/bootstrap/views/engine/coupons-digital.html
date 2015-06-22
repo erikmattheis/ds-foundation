@@ -1,0 +1,53 @@
+<div class="validation">
+  <div data-ng-show="!youtech.hasValidCard()">
+    <p>Your loyalty card number could not be validated. Please <a href="javascript:void(0)" data-ng-click="goUrl('/profile')">update your profile</a> or visit a store to sign up for a card.</p>
+  </div>
+</div>
+<h1>Digital Coupons</h1>
+<div>
+  <div class="col-md-6">
+    <span>Total Savings - ${{selectedCoupons.totalSavings}}</span>
+    <button class="button gsn-button-default" data-ng-click="selectedCoupons.cardCouponOnly = !selectedCoupons.cardCouponOnly">
+      <i class="fa fa-square-o" data-ng-hide="selectedCoupons.cardCouponOnly"></i><i class="fa fa-check-square-o" data-ng-show="selectedCoupons.cardCouponOnly"></i>
+      View Coupons On Card
+    </button>
+  </div>
+  <div class="col-md-6 col-xs-12 text-right">
+    <span>Sort by: </span>
+    <div class="button-group dropdown">
+      <button style="" type="button" class="button gsn-button-default dropdown-toggle" data-toggle="dropdown">{{vm.sortByName}} <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="javascript:void(0)" data-ng-click="vm.sortBy = 'EndDate';vm.sortByName='About to Expire'">About to Expire</a></li>
+        <li><a href="javascript:void(0)" data-ng-click="vm.sortBy = '-StartDate';vm.sortByName='Newest'">Newest</a></li>
+        <li><a href="javascript:void(0)" data-ng-click="vm.sortBy = '-TopTagLine';vm.sortByName='Savings'">Savings</a></li>
+        <li><a href="javascript:void(0)" data-ng-click="vm.sortBy = 'BrandName';vm.sortByName='Brand'">Brand</a></li>
+        <li><a href="javascript:void(0)" data-ng-click="vm.sortBy = 'CategoryName';vm.sortByName='Department'">Department</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <form name="digitalCouponSearch" class="input-group pull-right" style="width: 300px; padding-top: 5px">
+    <div class="small-9 columns">
+      <input type="text" class="form-control" placeholder="Search for..." name="q" data-ng-model="vm.filterBy">
+    </div>
+    <div class="small-3 columns">
+      <button class="button gsn-button-default" type="submit">
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </div>
+    </form>
+</div>
+<div>
+  <br />
+  <div class="col-md-12" data-ng-show="selectedCoupons.items.length <= 0 && vm.filterBy">No results returned.</div>
+  <div data-ng-show="selectedCoupons.items.length == 0">No items found</div>
+  <div data-ng-show="selectedCoupons.targeted.length > 0 && vm.sortBy == 'EndDate'">
+    Limited Time Coupons
+    <br />
+    <div class="col-md-4 col-sm-6 coupons" data-ng-include="getThemeUrl('/views/engine/coupons-digital-item.html')" data-ng-repeat="item in selectedCoupons.targeted"></div>
+  </div>
+  <div data-infinite-scroll="loadMore()">
+    <div class="col-md-4 col-sm-6 coupons" data-ng-include="getThemeUrl('/views/engine/coupons-digital-item.html')" data-ng-repeat="item in selectedCoupons.items"></div>
+  </div>          
+</div>

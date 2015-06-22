@@ -1,0 +1,84 @@
+<div class="row">
+	<div class="col-md-12" data-ng-include="getThemeUrl('/views/engine/circular-view-type.html')"></div>
+</div>
+<br/>
+<div class="dcircular-list" data-ng-hide="vm.circIdx > 0 && vm.pageIdx > 0">
+	<div class="dcircular-list-content">
+		<div class="col-md-4 col-sm-6 dcircular-list-single" data-ng-repeat="item in vm.digitalCirc.Circulars">
+     <a class="thumbnail dcircular-thumbnail" href="javascript:void(0)" data-ng-click="vm.circIdx = ($index + 1); vm.pageIdx = 1">
+       <img class="dcircular-image" alt="" data-ng-src="{{item.SmallImageUrl}}"> 
+       <div class="caption dcircular-caption"><h3 style="width: 100%; text-align: center;">{{item.CircularTypeName}}</h3></div>
+     </a>
+   </div>
+ </div>
+</div>
+<div class="dcircular-content" data-ng-show="vm.circIdx > 0 && vm.pageIdx > 0" style="position: relative">
+  <div style="margin: 0 auto; height: auto; position: relative">
+    <div data-ng-if="vm.digitalCirc.Circulars.length > 1"><a href="javascript:void(0)" data-ng-click="vm.circIdx = 0" class="dcircular-back-to-list">&larr; Choose Another Ad</a><br /></div>
+    <ul class="pagination" data-ng-include="getThemeUrl('/views/engine/circular-view-flyer-pager.html')"></ul>
+    <div class="myImageMap">
+      <svg id="myFlyer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" preserveAspectRatio="xMinYMin meet">
+        <image width="1" height="1" xlink:href="" class="circImage" style="display: none"></image>
+        <rect ng:attr:x="{{item.rect[0]}}" ng:attr:y="{{item.rect[1]}}" ng:attr:width="{{item.rect[4]}}" ng:attr:height="{{item.rect[5]}}" opacity="0" data-ng-repeat="item in vm.digitalCirc.Circulars[vm.circIdx - 1].Pages[vm.pageIdx - 1].Items | orderBy:['-ItemId']" ng-cloak="" data-gsn-hover-sync="#item_{{item.ItemId}}" data-ng-click="vm.activeItem = item"></rect>
+      </svg>
+      <div data-ng-repeat="item in vm.digitalCirc.Circulars[vm.circIdx - 1].Pages[vm.pageIdx - 1].Items" 
+        class="myContent" 
+        data-ui-event="{'mouseover': 'vm.activeItem = item', 'mouseout': 'vm.activeItem = null' }"
+        data-ng-class="{'active': vm.activeItem.ItemId == item.ItemId }"
+        data-ng-click="vm.activeItem = item"
+        id="item_{{item.ItemId}}">
+        <div style="position: relative">
+        <a class="hvr-grow-shadow button gsn-button-default tiny" data-ng-click="doToggleCartItem($event, item)" data-ng-class="{'circAddButton': !isOnList(item)}">
+          <i class="fa" data-ng-class="{'fa-square-o': !isOnList(item), 'fa-check-square-o': isOnList(item)}"></i> {{ !isOnList(item) ? 'ADD ITEM' : 'ON LIST'}}
+        </a>
+        <a class="hvr-grow-shadow button gsn-button-default tiny myInfo" style="position: absolute; right: 5px; top: 5px;" title="View Item details..." data-gsn-modal="getThemeUrl('/views/engine/modal-circular-item.html')" data-ng-click="showModal()" data-show-if="vm['item' + $index]">
+          <i class="fa fa-info-circle"></i>
+        </a>
+        </div>
+      </div>
+    </div>
+
+    <ul class="pagination" data-ng-include="getThemeUrl('/views/engine/circular-view-flyer-pager.html')"></ul>
+  </div>
+  <div class="myFakeFlyer" data-sync-height="#myFlyer" data-gsn-svg-image=".circImage" data-src="{{vm.digitalCirc.Circulars[vm.circIdx - 1].Pages[vm.pageIdx - 1].ImageUrl}}"></div>
+</div>
+<div class="dcircular-popup">
+  <div class="popup-title"></div>
+  <div class="popup-content"></div>
+</div>
+<style>
+.myFakeFlyer {
+  display: none;
+}
+
+.myImageMap {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.myContent {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  display: table;
+}
+
+.myContent > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.circAddButton, .myInfo {
+  display: none; 
+  height: 0;
+  width: 0;
+}
+
+.myContent.active .circAddButton, .myContent.active .myInfo {
+  display: inline;
+  height: auto;
+  width: auto;
+}
+
+</style>

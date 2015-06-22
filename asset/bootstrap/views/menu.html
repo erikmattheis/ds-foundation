@@ -1,0 +1,62 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#"></a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+  <ul>
+    <li>
+      <div class="right" data-ng-class="{ 'open': gvm.shoppingListActive }" data-ng-if="',visible-xs'.indexOf(bsDisplayMode) > 0">
+        <a class="button gsn-button-default navbar-button" href="javascript:void(0)"data-ng-click="gvm.shoppingListActive = !gvm.shoppingListActive" >
+          My List
+          <span class="badge badgeCount">{{getShoppingListCount()}}</span>
+          <span class="glyphicon glyphicon-chevron-down"></span>
+          <span class="sr-only">Toggle Shopping List</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-touch mylist-menu" role="menu" style="width: 300px">
+          <li data-ng-if="gvm.shoppingListActive">
+            <div class="shopping-list" data-ng-include="getThemeUrl('/views/engine/shopping-list-plugin.html')"></div>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul>
+      <li data-ng-repeat="menu in siteMenu">
+        <a data-ng-href="{{menu.Path}}" data-ng-if="menu.Path != '#'" itemprop="url" target="{{menu.OpenWindow ? '_blank' : ''}}"><span data-ng-bind-html="menu.Name | trustedHtml"></span></a>
+        <a href="javascript:void(0)" class="dropdown-toggle" data-ng-if="menu.Path == '#' || menu.Path == ''" itemprop="name" data-dropdown="submenu-{{$index}}">
+          <span data-ng-bind-html="menu.Name | trustedHtml"></span> <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="f-dropdown" aria-hidden="true" tabindex="-1" data-dropdown-content id="submenu-{{$index}}">
+          <li data-ng-repeat="sm in menu.SubMenu" itemprop="name" style="width:100%">
+            <a data-ng-href="{{sm.Path}}" itemprop="url" target="{{sm.OpenWindow ? '_blank' : ''}}"><span data-ng-bind-html="sm.Name | trustedHtml"></span></a>
+          </li>  
+        </ul>
+      </li>
+    </ul>
+    <ul class="left">
+      <li data-ng-class="{ 'open': gvm.shoppingListActive }">
+        <a class="button gsn-button-default list" href="javascript:void(0)" data-ng-click="gvm.shoppingListActive = !gvm.shoppingListActive" >
+          My List
+          <span class="badge badgeCount">{{getShoppingListCount()}}</span>
+          <span class="glyphicon glyphicon-chevron-down"></span>
+          <span class="sr-only">Toggle Shopping List</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-touch mylist-menu" role="menu" style="width: 300px">
+          <li data-ng-if="gvm.shoppingListActive">
+            <div class="shopping-list" data-ng-include="getThemeUrl('/views/engine/shopping-list-plugin.html')"></div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
+<script>
+  $(document).ready(function() {
+    setTimeout(function() {
+      $(document).foundation('dropdown', 'reflow');
+    }, 500);
+  });
+</script>

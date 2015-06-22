@@ -1,0 +1,29 @@
+<div class="hidden-meta" data-gsn-title="{{ChainName}} | recipe search"></div>
+<div data-ctrl-recipe-search="" class="col-md-12"> 
+  <h1>Recipe Search Result</h1>
+  <button class="button gsn-button-default tiny" data-ng-click="goBack()">Back</button><br />
+  <ul class="pagination" data-ng-init="vm.currentPage = 1">
+    <li>
+      <a href="javascript:void(0)" aria-label="Previous" data-ng-click="vm.currentPage = (vm.currentPage <= 1) ? vm.currentPage = 20 : vm.currentPage - 1">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+  	<li data-ng-repeat="item in [] | range:0:totalItems/itemsPerPage" data-ng-class="{'active': item == (vm.currentPage - 1)}">
+  	  <a href="javascript:void(0)" data-ng-click="vm.currentPage = item + 1">{{$index + 1}}</a>
+  	</li>
+  	<li>
+      <a href="javascript:void(0)" aria-label="Next" data-ng-click="vm.currentPage = (vm.currentPage >= totalItems/itemsPerPage) ? vm.currentPage = 1 : vm.currentPage + 1">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+  <div class="recipeSearchResults" data-ng-repeat="item in vm.searchResult | orderBy:'Relevance':true | pagingFilter:itemsPerPage:(vm.currentPage-1)">
+      <a href="javascript:void(0)" data-ng-click="goUrl('/recipe/' + item.RecipeId)">{{item.RecipeTitle}}</a>
+  </div>
+</div>
+
+<style>
+.recipeSearchResults a {
+  color: #000 !important;
+}
+</style>
